@@ -1,4 +1,4 @@
-#include <unistd.h> // Pour la fonction access
+#include <unistd.h> 
 
 char *_which(char *filename, list_path *head)
 {
