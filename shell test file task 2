@@ -3,45 +3,49 @@
 #include <unistd.h>
 #include "shell.h"
 
-#define MAX_INPUT_SIZE 1024
+#define MAX_COMMAND_LENGTH 1024
 
-int main() 
+int main()
 {
-    char input[MAX_INPUT_SIZE];
-    char *args[2];
+    char command[MAX_COMMAND_LENGTH];
+    char prompt[] = "# ";
 
-    while (1) 
-    {
-        printf("$ ");
-        fflush(stdout); 
-        
-        if (fgets(input, sizeof(input), stdin) == NULL) 
-        {
-            /* Gérer la fin du fichier (Ctrl+D) */
+    while (1)
+{
+        printf("%s", prompt);
+
+/* Lire la commande de l'utilisateur */
+        if (fgets(command, MAX_COMMAND_LENGTH, stdin) == NULL)
+{
+            /* Gérer la fin de fichier (EOF) */
             printf("\n");
             break;
         }
-        input[strcspn(input, "\n")] = '\0';
+/* Supple le saut a la ligne à la fin de la command */
+        command[strcspn(command, "\n")] = '\0';
 
-        args[0] = input;
-        args[1] = NULL;
-      
+        /* Créer un processus fils pour exécuter la commande */
         pid_t pid = fork();
-        if (pid < 0) 
-        {
+
+        if (pid == -1)
+{
+            /* Gérer l'erreur de fork */
             perror("fork");
-            exit(EXIT_FAILURE);
-        } 
-        else if (pid == 0) 
-        {
-        if (execvp(args[0], args) == -1) 
-            {
-            perror("execvp");
+        } else if (pid == 0)
+{
+            /* processus fils */
+            /* Exécuter la commande avec execve */
+            if (execve(command, NULL, NULL) == -1)
+{
+                /* Si execve échoue, afficher un message d'erreur */
+                perror("execve");
                 exit(EXIT_FAILURE);
             }
-        } 
-        else 
-        {
+        }
+else
+{
+            /* processus parent */
+            /* Att la fin du processus fils */
             wait(NULL);
         }
     }
