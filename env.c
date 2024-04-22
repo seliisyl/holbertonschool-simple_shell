@@ -3,13 +3,15 @@
 #include <string.h>
 
 /* Fonction pour afficher l'environnement */
-void show_environment() {
+void show_environment()
+{
     system("env");
 }
 
 /* Fonction pour définir une variable d'environnement */
 void set_environment_variable(char *name, char *value) {
-    if (name == NULL || value == NULL) {
+    if (name == NULL || value == NULL)
+    {
         fprintf(stderr, "Usage: setenv <variable> <valeur>\n");
         return;
     }
@@ -17,8 +19,10 @@ void set_environment_variable(char *name, char *value) {
 }
 
 /* Fonction pour supprimer une variable d'environnement */
-void unset_environment_variable(char *name) {
-    if (name == NULL) {
+void unset_environment_variable(char *name)
+{
+    if (name == NULL)
+    {
         fprintf(stderr, "Usage: unsetenv <variable>\n");
         return;
     }
