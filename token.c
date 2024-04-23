@@ -11,7 +11,7 @@ char **_str(char *line)
 {
 	char *token, *delim = " \t\n", *tmp = NULL, **command = NULL;
 	int count = 0, i = 0;
-	
+
 	if (!line)
 		return (NULL);
 	tmp = my_strdup(line);

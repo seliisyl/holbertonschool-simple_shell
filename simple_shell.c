@@ -12,11 +12,11 @@ int main(__attribute__((unused)) int ac, char **av)
 	char *line = NULL;
 	char **command = NULL;
 	int status = 0, command_number = 0;
-	
+
 	while (1)
 	{
 		line = read_line();
-	
+
 		if (line == NULL)
 		{
 			if (isatty(STDIN_FILENO))
