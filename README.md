@@ -2,17 +2,17 @@
 this is a team project on SIMPLE-SHELL done by Selimata Sylla, Pauline Onier and Aline Laurier
 
 # Content
-What is the shell ?
-About this project
-Essentiel Fonctionalitie of the simple shell
-File description
-List of allowed functions and system calls fot this project
-Usage
-Bugs
-Team
+- What is the shell ?
+- About this project
+- Essentiel Fonctionalitie of the simple shell
+- File description
+- List of allowed functions and system calls fot this project
+- Usage
+- Bugs
+- Team
 
 # What is the shell
-Un shell est un programme informatique qui fournit une interface utilisateur pour accéder aux services d'un système d'exploitation. Il agit comme un interprète de commandes, permettant à l'utilisateur de saisir des commandes textuelles pour exécuter des programmes, manipuler des fichiers, naviguer dans les répertoires et interagir avec le système d'exploitation.
+A shell is a computer program that provides a user interface for the services of an operating system. It acts as a command interpreter, allowing the user to enter text commands to run programs, manipulate files, navigate directories, and interact with the operating system.
 
 # About this project
 simple shell is a simple version of the linux shell made by the holberton school 
