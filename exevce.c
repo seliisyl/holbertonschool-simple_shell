@@ -4,10 +4,10 @@
  *
  * @command: Array of strings representing the command and its arguments.
  * @av: Array of strings representing the command-line arguments.
- * @idx: Index of the command in the shell's execution history.
+ * @index: Index of the command in the shell's execution history.
  * Return: The exit status of the executed command.
  */
-int exec(char **command, char **av, int idx)
+int exec(char **command, char **av, int index)
 
 {
 	pid_t child;
@@ -17,7 +17,7 @@ int exec(char **command, char **av, int idx)
 	path = _path(command[0]);
 	if (!path)
 	{
-		fprintf(stderr, "%s: %d: %s: not found\n", av[0], idx, command[0]);
+		fprintf(stderr, "%s: %d: %s: not found\n", av[0], index, command[0]);
 		free_array(command);
 		return (127);
 	}

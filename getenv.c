@@ -12,19 +12,19 @@ char *get_env(char *variable)
 {
 	char *tmp, *value, *key, *env;
 	int i;
-	
+
 	for (i = 0; environ[i]; i++)
 	{
 		tmp = my_strdup(environ[i]);
-		
+
 		key = strtok(tmp, "=");
-		
+
 		if (key != NULL && strcmp(key, variable) == 0)
 		{
 			value = strtok(NULL, "\n");
-			
+
 			env = (value != NULL) ? my_strdup(value) : NULL;
-			
+
 			free(tmp);
 			return (env);
 		}

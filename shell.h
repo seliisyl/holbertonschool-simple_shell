@@ -18,7 +18,8 @@ char *get_env(char *var);
 char *my_strdup(const char *s);
 char **_str(char *line);
 void free_array(char **command);
-int exec(char **arr, char **av, int idx);
+int exec(char **arr, char **av, int command_number);
 int main(__attribute__((unused)) int ac, char **av);
 void hsh_env(char **cmd, int *status);
+
 #endif

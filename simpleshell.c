@@ -11,35 +11,29 @@ int main(__attribute__((unused)) int ac, char **av)
 {
 	char *line = NULL;
 	char **command = NULL;
-	int status = 0, idx = 0;
-	/*Infinite loop for continuous shell operation*/
+	int status = 0, command_number = 0;
+	
 	while (1)
 	{
-		/*Read a line of input from the user*/
 		line = read_line();
-		
+	
 		if (line == NULL)
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
 			return (status);
 		}
-		idx++;
+		command_number++;
 
-		/*Split the input line into individual commands*/
 		command = _str(line);
 
-		/*If splitting fails, skip to the next iteration*/
 		if (!command)
 			continue;
 
-		/*Check if the command is a built-in shell command*/
 		if (is_built_in(command) == 1)
 			handle_built_in(command, &status);
 		else
-			/*Execute the external command and update the shell status*/
-			status = exec(command, av, idx);
+			status = exec(command, av, command_number);
 	}
-	/*The program should never reach this point due to the infinite loop*/
 	return (0);
 }
