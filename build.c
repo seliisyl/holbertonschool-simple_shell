@@ -1,11 +1,11 @@
 #include "shell.h"
 /**
- * is_built_in - Checks if a command is a built-in shell command.
+ * built_in - Checks if a command is a built-in shell command.
  *
  * @command: Array of strings representing the command and its arguments.
  * Return: 1 if the command is built-in, 0 otherwise.
  */
-int is_built_in(char **command)
+int built_in(char **command)
 
 {
 	char *built[] = {"exit", "env", "cd", "help", NULL};

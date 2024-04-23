@@ -10,7 +10,7 @@
 
 extern char **environ;
 char *read_line(void);
-int is_built_in(char **command);
+int built_in(char **command);
 void handle_built_in(char **command, int *status);
 void hsh_exit(char **cmd, int *status);
 char *_path(char *command);
